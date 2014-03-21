@@ -18,7 +18,7 @@ module CashMoolah
 
       post :sync do
         # guard!
-        ExpenseSaver.new(params[:date]).sync
+        ExpenseSaver.new(params[:data]).sync
       end
 
       # {user_id: '123', date: ''}
