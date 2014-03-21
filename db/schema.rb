@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140321052912) do
   enable_extension "uuid-ossp"
 
   create_table "oauth_access_grants", force: true do |t|
-    t.integer  "resource_owner_id", null: false
+    t.string   "resource_owner_id", null: false
     t.integer  "application_id",    null: false
     t.string   "token",             null: false
     t.integer  "expires_in",        null: false
