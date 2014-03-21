@@ -1,4 +1,6 @@
 class API < Grape::API
+  include APIGuard
+  
   prefix 'api'
 
   default_format :json

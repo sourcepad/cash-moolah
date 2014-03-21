@@ -3,6 +3,7 @@ module CashMoolah
     format :json
     desc 'Returns pong.'
     get :ping do
+      guard!
       { ping: params[:pong] || 'pong' }
     end
   end
