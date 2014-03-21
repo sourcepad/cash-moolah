@@ -4,7 +4,9 @@ describe ExpenseSaver do
   let(:user) { create(:user) }
 
   describe "#sync" do
+
     context "no groups" do
+      
       it "creates an expense" do
         expect{
           ExpenseSaver.new(
@@ -13,6 +15,7 @@ describe ExpenseSaver do
           ).sync
         }.to change{Expense.count}.by(1)
       end
+
     end
 
     context "with groups" do
