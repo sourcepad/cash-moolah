@@ -1,5 +1,6 @@
 module CashMoolah
   class ExpenseApi < Grape::API
+    include Authentication
 
     # {user_id: 'sdklfj',
     #   groups: [
@@ -17,19 +18,19 @@ module CashMoolah
     resource :expenses do
 
       post :sync do
-        # guard!
+        authenticate!
         ExpenseSaver.new(params[:data]).sync
       end
 
       # {user_id: '123', date: ''}
 
       get :by_date do
-        # guard!
+        authenticate!
         ExpensesByDate.new(params[:data]).fetch
       end
 
       get :stats_by_year do
-        # guard!
+        authenticate!
         user = User.find(params[:user_id])
         expense_stats.select("posted_at, amount").map{|x| [(x.posted_at.to_i * 1000), x.amount.to_f]}
       end

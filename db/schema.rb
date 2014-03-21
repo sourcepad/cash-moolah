@@ -11,11 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321133644) do
+ActiveRecord::Schema.define(version: 20140321211446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
   enable_extension "uuid-ossp"
+
+  create_table "api_keys", force: true do |t|
+    t.string   "access_token",                null: false
+    t.string   "user_id",                     null: false
+    t.boolean  "active",       default: true, null: false
+    t.datetime "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "api_keys", ["access_token"], name: "index_api_keys_on_access_token", unique: true, using: :btree
+  add_index "api_keys", ["user_id"], name: "index_api_keys_on_user_id", using: :btree
 
   create_table "expense_stats", force: true do |t|
     t.string   "user_id"
@@ -41,8 +54,20 @@ ActiveRecord::Schema.define(version: 20140321133644) do
   add_index "expenses", ["tags"], name: "index_expenses_on_tags", using: :gin
   add_index "expenses", ["user_id"], name: "index_expenses_on_user_id", using: :btree
 
+  create_table "incomes", force: true do |t|
+    t.string   "name"
+    t.decimal  "amount",     precision: 10, scale: 2
+    t.datetime "posted_at"
+    t.string   "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "incomes", ["posted_at"], name: "index_incomes_on_posted_at", using: :btree
+  add_index "incomes", ["user_id"], name: "index_incomes_on_user_id", using: :btree
+
   create_table "oauth_access_grants", force: true do |t|
-    t.integer  "resource_owner_id", null: false
+    t.string   "resource_owner_id", null: false
     t.integer  "application_id",    null: false
     t.string   "token",             null: false
     t.integer  "expires_in",        null: false
@@ -55,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140321133644) do
   add_index "oauth_access_grants", ["token"], name: "index_oauth_access_grants_on_token", unique: true, using: :btree
 
   create_table "oauth_access_tokens", force: true do |t|
-    t.integer  "resource_owner_id"
+    t.string   "resource_owner_id"
     t.integer  "application_id"
     t.string   "token",             null: false
     t.string   "refresh_token"
