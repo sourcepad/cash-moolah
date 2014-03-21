@@ -17,17 +17,16 @@ module CashMoolah
     resource :expenses do
 
       post :sync do
-        guard!
+        # guard!
         ExpenseSaver.new(params[:date]).sync
       end
 
       # {user_id: '123', date: ''}
 
       get :by_date do
-        guard!
+        # guard!
         ExpensesByDate.new(params[:data]).fetch
       end
-
 
     end
 
