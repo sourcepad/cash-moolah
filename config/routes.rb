@@ -1,10 +1,5 @@
-CashMoolah::Application.routes.draw do
-  
-  
-  devise_for :users do
-    get "/login" => "devise/sessions#new"
-    delete "/logout" => "devise/sessions#destroy"
-  end
-
+CashMoolah::Application.routes.draw do  
+  devise_for :users
+      
   root to: "landing#home"
 end
