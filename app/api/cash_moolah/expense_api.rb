@@ -17,8 +17,8 @@ module CashMoolah
     resource :expenses do
 
       post :sync do
-        # guard!
-        
+        guard!
+        ExpenseSaver.new(params[:date]).sync
       end
 
     end
