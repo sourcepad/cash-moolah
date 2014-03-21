@@ -29,8 +29,9 @@ module CashMoolah
       end
 
       get :stats_by_year do
+        # guard!
         user = User.find(params[:user_id])
-        expense_stats.select("posted_at, amount").map{|x| [x.posted_at.to_i, x.amount.to_f]}
+        expense_stats.select("posted_at, amount").map{|x| [(x.posted_at.to_i * 1000), x.amount.to_f]}
       end
 
     end
