@@ -8,4 +8,5 @@ class API < Grape::API
 
   version 'v1', :using => :path, :vendor => 'cash_moolah'
   mount CashMoolah::Ping
+  mount CashMoolah::ExpenseApi
 end

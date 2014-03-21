@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321052912) do
+ActiveRecord::Schema.define(version: 20140321081147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
   enable_extension "uuid-ossp"
 
+  create_table "expenses", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "name"
+    t.decimal  "amount",     precision: 10, scale: 2
+    t.datetime "posted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "oauth_access_grants", force: true do |t|
-    t.integer  "resource_owner_id", null: false
+    t.string   "resource_owner_id", null: false
     t.integer  "application_id",    null: false
     t.string   "token",             null: false
     t.integer  "expires_in",        null: false
@@ -31,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140321052912) do
   add_index "oauth_access_grants", ["token"], name: "index_oauth_access_grants_on_token", unique: true, using: :btree
 
   create_table "oauth_access_tokens", force: true do |t|
-    t.integer  "resource_owner_id"
+    t.string   "resource_owner_id"
     t.integer  "application_id"
     t.string   "token",             null: false
     t.string   "refresh_token"
