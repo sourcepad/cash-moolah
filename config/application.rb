@@ -29,5 +29,9 @@ module CashMoolah
 
     config.i18n.enforce_available_locales = false
 
+    config.generators do |g|
+      g.factory_girl false
+    end
+
   end
 end
