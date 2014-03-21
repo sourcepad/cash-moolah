@@ -47,6 +47,14 @@ group :development, :test do
   gem "database_cleaner", '1.0.0.RC1'
 end
 
+group :development do
+  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+  gem 'capistrano-thin'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
