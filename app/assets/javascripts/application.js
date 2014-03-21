@@ -12,6 +12,7 @@
 //
 // require modernizr-2.7.1.min
 //= require jquery.min
+//= require jquery_ujs
 //= require bootstrap.min
 //= require imagesloaded
 //= require waypoints.min
