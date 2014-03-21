@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ExpenseSaver do
-  let(:user) { create :user }
+  let(:user) { create(:user) }
 
   describe "#sync" do
     context "no groups" do
