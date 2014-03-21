@@ -11,12 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321104439) do
+ActiveRecord::Schema.define(version: 20140321133644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
   enable_extension "uuid-ossp"
+
+  create_table "expense_stats", force: true do |t|
+    t.string   "user_id"
+    t.datetime "posted_at"
+    t.decimal  "amount",     precision: 10, scale: 2, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "expense_stats", ["posted_at"], name: "index_expense_stats_on_posted_at", using: :btree
+  add_index "expense_stats", ["user_id"], name: "index_expense_stats_on_user_id", using: :btree
 
   create_table "expenses", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
@@ -25,9 +36,11 @@ ActiveRecord::Schema.define(version: 20140321104439) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "tags",                                default: [], array: true
+    t.string   "user_id"
   end
 
   add_index "expenses", ["tags"], name: "index_expenses_on_tags", using: :gin
+  add_index "expenses", ["user_id"], name: "index_expenses_on_user_id", using: :btree
 
   create_table "oauth_access_grants", force: true do |t|
     t.string   "resource_owner_id", null: false
