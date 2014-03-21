@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321081147) do
+ActiveRecord::Schema.define(version: 20140321104439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
   enable_extension "uuid-ossp"
 
   create_table "expenses", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
@@ -23,7 +24,10 @@ ActiveRecord::Schema.define(version: 20140321081147) do
     t.datetime "posted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tags",                                default: [], array: true
   end
+
+  add_index "expenses", ["tags"], name: "index_expenses_on_tags", using: :gin
 
   create_table "oauth_access_grants", force: true do |t|
     t.string   "resource_owner_id", null: false

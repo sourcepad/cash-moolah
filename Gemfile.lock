@@ -44,6 +44,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     daemons (1.1.9)
+    database_cleaner (1.0.0.RC1)
     descendants_tracker (0.0.3)
     devise (3.2.4)
       bcrypt (~> 3.0)
@@ -202,6 +203,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  database_cleaner (= 1.0.0.RC1)
   devise
   doorkeeper
   factory_girl_rails
