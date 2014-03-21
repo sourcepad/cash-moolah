@@ -1,0 +1,19 @@
+.navbar.navbar-default.navbar-fixed-top
+  .navbar-header
+    button.navbar-toggle data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button" 
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    = link_to(image_tag('logo.png', class: 'brand-logo', alt: 'Moolah'), '#slide-1', class: 'navbar-brand')
+  .navbar-collapse.collapse.navbar-responsive-collapse
+    ul.nav.navbar-nav
+      li= link_to('Home', '#slide-1')
+      li= link_to('About', '#slide-3')
+      li= link_to('Download', '#slide-4')
+      li= link_to('Contact', '#slide-5')
+    ul.nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        li= link_to('Logout', destroy_user_session_path, method: :delete)
+      - else
+        li= link_to('Login', "javascript:document.getElementById('email1').focus()")
+        li= link_to('Register', "javascript:document.getElementById('name').focus()")

@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20140321133644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
   enable_extension "uuid-ossp"
 
   create_table "expense_stats", force: true do |t|
@@ -43,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140321133644) do
   add_index "expenses", ["user_id"], name: "index_expenses_on_user_id", using: :btree
 
   create_table "oauth_access_grants", force: true do |t|
-    t.string   "resource_owner_id", null: false
+    t.integer  "resource_owner_id", null: false
     t.integer  "application_id",    null: false
     t.string   "token",             null: false
     t.integer  "expires_in",        null: false
@@ -56,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140321133644) do
   add_index "oauth_access_grants", ["token"], name: "index_oauth_access_grants_on_token", unique: true, using: :btree
 
   create_table "oauth_access_tokens", force: true do |t|
-    t.string   "resource_owner_id"
+    t.integer  "resource_owner_id"
     t.integer  "application_id"
     t.string   "token",             null: false
     t.string   "refresh_token"
