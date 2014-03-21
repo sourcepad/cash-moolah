@@ -1,0 +1,11 @@
+#auth-login.col-xs-6
+  .spacer
+    h2 Login
+    p Track. Graphs. Update.
+  = form_for(:user, as: :user, url: session_path(:user), html: {class: "col-xs-offset-3 col-xs-6", role:"form"}) do |f|
+    .form-group= f.email_field :email, autofocus: true, placeholder: "Email Address", class: 'form-control', id: 'in-email'
+    .form-group= f.password_field :password, placeholder: "Password", autocomplete: "off", class: 'form-control'
+    .checkbox.text-left
+      = f.check_box :remember_me
+      = f.label :remember_me
+    .col-xs-offset-8.col-xs-4= f.submit "Login", class: "btn btn-success"

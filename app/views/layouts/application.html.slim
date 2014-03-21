@@ -1,14 +1,19 @@
-doctype 5 
-html
+doctype 5
+html.no-js
   head
-    title $$$ Cash Moolah $$$
+    meta charset="utf-8" 
+    meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" 
+    title Moolah
+    meta content="" name="description" 
+    meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport"
+    = favicon_link_tag('logo.png', type: 'image/png')
     = csrf_meta_tags
-
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
-    / = stylesheet_link_tag "app/manifest", media: "all" 
-    = javascript_include_tag "application", "data-turbolinks-track" => true
-    / = javascript_include_tag "application", "//cdn.optimizely.com/js/555740113.js" 
-    / - if File.exists? Rails.root.join("app", "assets", "javascripts", "controllers", "#{params[:controller]}.js.coffee")
-    /   = javascript_include_tag "controllers/#{params[:controller]}" 
-  body
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+    = stylesheet_link_tag "application", media: "all"
+    / = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+    / = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
+    = javascript_include_tag "modernizr-2.7.1.min"
+  body.loading
+    = render 'header'
     = yield
+    = javascript_include_tag "application"

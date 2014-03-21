@@ -1,2 +1,16 @@
-div Home
-= link_to "Login", new_user_session_path
+main
+  section#slide-1.homeSlide
+    .bcg data-anchor-target="#slide-1" data-center="background-position: 0% 50%;" data-top-bottom=("background-position: 50% -30px;") 
+      .hsContainer
+        .hsContent data-106-top="opacity: 0" data-anchor-target=("#slide-1 .jumbotron") data-center=("opacity: 1") 
+          .jumbotron
+            h1 Moolah
+            p Save money. Track expenses.
+            p= link_to('Learn more', '#slide-3', class: 'btn btn-primary btn-lg', role: "button")
+  section#slide-2.homeSlide
+    .bcg data--25p-bottom="background-color:#3A5D88;" data--90p-bottom="background-color:(0,0,0);" data-0="background-color:#3A5D88;" data-anchor-target="#slide-2" 
+      .hsContainer
+        .hsContent.container data-106-top="opacity: 0" data-anchor-target="#slide-2" data-center=("opacity: 1") 
+          .row
+            = render 'login'
+            = render 'register'
