@@ -9,9 +9,6 @@ gem 'thin'
 
 gem 'grape'
 gem 'devise'
-gem 'doorkeeper'
-gem 'rack-oauth2'
-gem 'settingslogic'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
