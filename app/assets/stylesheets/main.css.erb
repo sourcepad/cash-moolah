@@ -99,7 +99,7 @@ h2 {
   margin-top: 0;
 }
 .loading {
-  background: url('loading.gif') no-repeat center center;
+  background: url(<%= asset_path 'loading.gif' %>) no-repeat center center;
 }
 section {
   min-width: 960px;
@@ -128,7 +128,7 @@ main {
 }
 /* Slide 1 */
 #slide-1 .bcg {
-  background-image:url('bg1.jpg');
+  background-image:url(<%= asset_path 'bg1.jpg' %>);
   background-size: cover;
   background-color: #FFFFFF;
 }
@@ -140,16 +140,16 @@ main {
 #slide-2 .bcg {background: none; background-color: #010101; text-align: center;}
 
 /* Slide 3 */
-#slide-3 .bcg {background-image:url('bg2.jpg');}
+#slide-3 .bcg {background-image:url(<%= asset_path 'bg2.jpg' %>);}
 #slide-3 .bcg2 {background-image: none; background-color: #000000; position: absolute; top: 0; left: 0;}
 
 /* Slide 4 */
-#slide-4 .bcg {background-image:url('bg3.jpg');}
-#slide-4 .bcg2 {background-image:url('bg2.jpg'); position: absolute; top: 0; left: 0;}
+#slide-4 .bcg {background-image:url(<%= asset_path 'bg3.jpg' %>);}
+#slide-4 .bcg2 {background-image:url(<%= asset_path 'bg2.jpg' %>); position: absolute; top: 0; left: 0;}
 
 /* Slide 5 */
-#slide-5 .bcg {background-image:url('bg4.jpg');}
-#slide-5 .bcg2 {background-image:url('bg3.jpg'); position: absolute; top: 0; left: 0;}
+#slide-5 .bcg {background-image:url(<%= asset_path 'bg4.jpg' %>);}
+#slide-5 .bcg2 {background-image:url(<%= asset_path 'bg3.jpg' %>); position: absolute; top: 0; left: 0;}
 
 .hsContainer {
   display: table;

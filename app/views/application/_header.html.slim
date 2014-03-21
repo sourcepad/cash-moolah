@@ -15,5 +15,5 @@
       - if user_signed_in?
         li= link_to('Logout', destroy_user_session_path, method: :delete)
       - else
-        li= link_to('Login', "javascript:document.getElementById('email1').focus()")
-        li= link_to('Register', "javascript:document.getElementById('name').focus()")
+        li= link_to('Login', "javascript:document.getElementById('in-email').focus()")
+        li= link_to('Register', "javascript:document.getElementById('up-name').focus()")
