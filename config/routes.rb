@@ -1,6 +1,5 @@
-CashMoolah::Application.routes.draw do
-  devise_for :users
-  
+CashMoolah::Application.routes.draw do  
+  use_doorkeeper
   devise_for :users do
     get "/login" => "devise/sessions#new"
     delete "/logout" => "devise/sessions#destroy"
