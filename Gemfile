@@ -7,6 +7,10 @@ gem 'rails', '4.0.3'
 gem 'pg'
 gem 'thin'
 
+gem 'grape'
+gem 'devise'
+gem 'doorkeeper'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
