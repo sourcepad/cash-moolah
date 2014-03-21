@@ -13,7 +13,7 @@ module CashMoolah
         user = User.find_by(email: params[:email])
 
         if user && user.valid_password?(params[:password])
-          key = ApiKeyCreator.new(user: user).create
+          key = ApiKeyCreator.new(user).save
           { access_token: key.access_token }
         else
           error!('Unauthorized.', 401)

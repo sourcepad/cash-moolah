@@ -8,4 +8,5 @@ class API < Grape::API
   mount CashMoolah::Ping
   mount CashMoolah::ExpenseApi
   mount CashMoolah::RegistrationApi
+  mount CashMoolah::Auth
 end
