@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Vagrant::Application.config.secret_key_base = 'cd98115cdbea658d5b02769ff6f13c8245ced0e4dedbaf33512e94bc893995aa96a77c701f78278c930992bcd974a7ec80e9f9ae8faa3c422ee86a1243e83495'
+CashMoolah::Application.config.secret_key_base = 'cd98115cdbea658d5b02769ff6f13c8245ced0e4dedbaf33512e94bc893995aa96a77c701f78278c930992bcd974a7ec80e9f9ae8faa3c422ee86a1243e83495'
