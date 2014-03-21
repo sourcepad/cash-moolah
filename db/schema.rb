@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 0) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-=======
 ActiveRecord::Schema.define(version: 20140321041528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
   enable_extension "uuid-ossp"
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
@@ -42,6 +35,5 @@ ActiveRecord::Schema.define(version: 20140321041528) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
->>>>>>> e197d7cfd1a3703317983cb89e05dcd05bf3a3bf
 
 end
