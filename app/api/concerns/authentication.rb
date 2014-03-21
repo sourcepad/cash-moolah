@@ -13,10 +13,10 @@ module Authentication
     end
 
     def current_user
-      acces_token = ApiKey.find_by(access_token: params[:acces_token])
-
-      if acces_token && !acces_token.acces_token?
-        @current_user = User.find(acces_token.user_id)
+      api_key = ApiKey.find_by(access_token: params[:access_token])
+      
+      if api_key && !api_key.expired?
+        @current_user = User.find(api_key.user_id)
       else
         false
       end
