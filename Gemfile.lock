@@ -30,6 +30,7 @@ GEM
     axiom-types (0.0.5)
       descendants_tracker (~> 0.0.1)
       ice_nine (~> 0.9)
+    bcrypt (3.1.7)
     builder (3.1.4)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -42,6 +43,12 @@ GEM
     coffee-script-source (1.7.0)
     daemons (1.1.9)
     descendants_tracker (0.0.3)
+    devise (3.2.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     equalizer (0.0.9)
     erubis (2.7.0)
     eventmachine (1.0.3)
@@ -74,6 +81,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.9.2)
     multi_xml (0.5.5)
+    orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
     rack (1.5.2)
@@ -138,12 +146,15 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0.1)
       equalizer (~> 0.0.7)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  devise
   grape
   jbuilder (~> 1.2)
   jquery-rails
