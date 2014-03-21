@@ -12,9 +12,7 @@ class ExpenseSaver
   def sync
     params[:expenses].each do |expense_params|
       p = ActionController::Parameters.new(expense_params).permit(:name, :amount, :posted_at)
-
       expense = Expense.create(p)
-
     end
   end
 end
