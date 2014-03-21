@@ -11,10 +11,10 @@ set :repo_url, 'git@github.com:sourcepad/cash-moolah.git'
 set :deploy_to, '/mnt/oso'
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{config/thin}
-
+set :rails_env, 'production'
 
 set :rvm_ruby_version, '2.1.1'
-set :default_env, { rvm_bin_path: '~/.rvm/bin' }
+# set :default_env, { rvm_bin_path: '~/.rvm/bin' }
 SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
 
 # Default value for :scm is :git
@@ -41,6 +41,11 @@ SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ru
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+SSHKit.config.command_map[:rake]  = "bundle exec rake" #8
+SSHKit.config.command_map[:rails] = "bundle exec rails"
+
+set :keep_releases, 20
+
 namespace :deploy do
 
   # desc 'Restart application'
@@ -60,5 +65,7 @@ namespace :deploy do
       # end
     end
   end
+
+  after :finishing, "deploy:cleanup"
 
 end
