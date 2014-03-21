@@ -10,4 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "hackathon"
   config.vm.network :forwarded_port, guest: 3000, host: 10080
+
+  config.ssh.private_key_path = "~/.ssh/id_rsa"
+  config.ssh.forward_agent = true 
 end
