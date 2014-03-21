@@ -1,5 +1,4 @@
-user = User.new
+user = User.find_or_initialize_by_email("lilwayne@cashmoolah.com")
 user.name = "Lil Wayne"
-user.email = "lilwayne@cashmoolah.com"
 user.password = "source101010"
 user.save
