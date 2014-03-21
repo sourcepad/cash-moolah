@@ -5,6 +5,7 @@ CashMoolah::Application.routes.draw do
   use_doorkeeper
   
   root to: "landing#home"
+  match 'dashboard', to: 'landing#dashboard', via: :all
 
   mount API => '/'
 end
