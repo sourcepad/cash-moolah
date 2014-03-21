@@ -1,7 +1,7 @@
 doctype 5 
 html
   head
-    title Cash Moolah $$$
+    title $$$ Cash Moolah $$$
     = csrf_meta_tags
 
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
@@ -11,5 +11,4 @@ html
     / - if File.exists? Rails.root.join("app", "assets", "javascripts", "controllers", "#{params[:controller]}.js.coffee")
     /   = javascript_include_tag "controllers/#{params[:controller]}" 
   body
-    div wew
     = yield
