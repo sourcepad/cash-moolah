@@ -13,9 +13,9 @@ module Authentication
     end
 
     def current_user
-      acces_token = ApiKey.where(access_token: params[:acces_token]).first
+      acces_token = ApiKey.find_by(access_token: params[:acces_token])
 
-      if acces_token && !token.acces_token?
+      if acces_token && !acces_token.acces_token?
         @current_user = User.find(acces_token.user_id)
       else
         false
