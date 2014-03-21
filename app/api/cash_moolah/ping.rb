@@ -2,7 +2,7 @@ module CashMoolah
   class Ping < Grape::API
     desc 'Returns pong.'
     get :ping do
-      guard!
+      # guard!
       { ping: params[:pong] || 'pong' }
     end
   end
