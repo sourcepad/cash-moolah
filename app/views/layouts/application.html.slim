@@ -10,10 +10,9 @@ html.no-js
     = csrf_meta_tags
     = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
     = stylesheet_link_tag "application", media: "all"
-    / = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
-    / = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
-    = javascript_include_tag "modernizr-2.7.1.min"
-  body.loading
+    = javascript_include_tag asset_path("modernizr-2.7.1.min")
+  body.loading id= "#{user_signed_in? ? 'in' : 'out'}"
     = render 'header'
     = yield
     = javascript_include_tag "application"
+    = yield(:javascripts)

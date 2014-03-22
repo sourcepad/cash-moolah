@@ -1,2 +1,15 @@
-= link_to "Logout", destroy_user_session_path, method: :delete
-h1 dashboard
+= content_for(:javascripts) do
+  javascript:
+    window.User = window.User || {};
+    window.User.Data = window.User.Data || {}
+    window.User.Data.token = "#{current_user.access_token}"
+  = javascript_include_tag asset_path('highstock')
+  = javascript_include_tag asset_path('highstock-gray')
+  = javascript_include_tag asset_path('exporting')
+  = javascript_include_tag asset_path('charts')
+main
+  section#slide-1.homeSlide
+    .bcg data-anchor-target="#slide-1" data-center="background-position: 0% 50%;" data-top-bottom=("background-position: 50% -30px;") 
+      .hsContainer
+        .hsContent data-106-top="opacity: 0;" data-anchor-target=("#slide-1") data-center=("opacity: 1;")
+          .container#dist-monthly style="height: 500px;min-width: 600px;margin-top: 100px;"
